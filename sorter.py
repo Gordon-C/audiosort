@@ -1,7 +1,8 @@
+# A simple script to sort audio files by their tags. Currently works for .mp3, .flac, and .m4a files.
+# Author: Thomas Quinn
 import os, shutil, mutagenx.easyid3, mutagenx.flac, mutagenx.easymp4
 
-global viableExtensions, failedFiles
-failedFiles = []
+global viableExtensions
 viableExtensions = ('.mp3', '.flac', '.m4a')
 
 def sortAudioFiles():
@@ -11,6 +12,7 @@ def sortAudioFiles():
 	outdir = userInput[1]
 	#gets all music files in all subdirectories with extensions in viableExtensions
 	musicFiles = []
+	failedFiles = []
 	for (path, dirs, files) in os.walk(indir):
 		musicFiles += [(path,f) for f in files if os.path.isfile(os.path.join(path,f)) and os.path.splitext(os.path.join(path,f))[1] in viableExtensions]	
 	#sorts music files into directories in this format: \artist\album\songfile
