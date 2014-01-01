@@ -21,7 +21,7 @@ def sortAudioFiles():
 			placeFile(src, dst)
 		except:
 			failedFiles.append(src)
-	if failedFiles == []:
+	if failedFiles != []:
 		print("The following files failed and music be moved manually")
 		for f in failedFiles:
 			print(f)
